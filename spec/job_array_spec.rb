@@ -13,7 +13,7 @@ describe Rufus::Scheduler::JobArray do
   class DummyJob < Struct.new(:id, :next_time); end
 
   before(:each) do
-    @array = Rufus::Scheduler::JobArray.new
+    @array = Rufus::Scheduler::JobArray.new 10
   end
 
   describe '#push' do

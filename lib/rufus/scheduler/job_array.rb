@@ -33,15 +33,15 @@ module Rufus
     #
     class JobArray
 
-      def initialize
-
+      def initialize(max_size)
+        @max_size = max_size
         @mutex = Mutex.new
         @array = []
       end
 
       def push(job)
 
-        @mutex.synchronize { @array << job unless @array.index(job) }
+        @mutex.synchronize { @array << job unless @array.index(job) or size > @max_size }
 
         self
       end

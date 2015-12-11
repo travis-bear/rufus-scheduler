@@ -59,6 +59,7 @@ module Rufus
 
     #MIN_WORK_THREADS = 3
     MAX_WORK_THREADS = 28
+    JOB_ARRAY_SIZE = 100
 
     attr_accessor :frequency
     attr_reader :started_at
@@ -79,8 +80,8 @@ module Rufus
 
       @started_at = nil
       @paused = false
-
-      @jobs = JobArray.new
+      max_size = @opts[:job_array_size] || JOB_ARRAY_SIZE
+      @jobs = JobArray.new max_size
 
       @frequency = Rufus::Scheduler.parse(opts[:frequency] || 0.300)
       @mutexes = {}

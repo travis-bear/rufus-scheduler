@@ -1,7 +1,7 @@
 
 Gem::Specification.new do |s|
 
-  s.name = 'rufus-scheduler'
+  s.name = 'pl_rufus-scheduler'
 
   s.version = File.read(
     File.expand_path('../lib/rufus/scheduler.rb', __FILE__)
